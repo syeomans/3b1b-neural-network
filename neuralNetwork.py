@@ -1,4 +1,5 @@
 # Video series this is based on: https://www.youtube.com/watch?v=aircAruvnKk
+# Book the video is based on: http://neuralnetworksanddeeplearning.com/
 
 from random import random
 import pickle
@@ -18,7 +19,7 @@ class neuron:
 
 	# Get the new value of this neuron given the values of its inputs
 	def update(self, inValues):
-		
+
 		# Make sure the input values are the correct type
 		if isinstance(inValues[0], neuron):
 			inValues = [i.value for i in inValues]
@@ -30,7 +31,7 @@ class neuron:
 		for i in range(0,len(inValues)):
 			weightedSum = inValues[i] * self.weights[i] # Sumproduct of weights and values
 		weightedSum = weightedSum + self.bias
-		self.value = sigmoid(weightedSum) 
+		self.value = sigmoid(weightedSum)
 
 
 class neuralNetwork:
@@ -82,7 +83,7 @@ print(myNN.getOutput())
 
 # Get correct answer from first training image
 answers = [0.0 for i in range(0,10)]
-answers[pixels[0]-1] = 1.0 
+answers[pixels[0]-1] = 1.0
 
 # Get cost for this output
 myCost = myNN.cost(answers)
